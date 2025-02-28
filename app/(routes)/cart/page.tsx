@@ -2,9 +2,9 @@
 
 import Container from '@/app/components/container';
 import useCart from '@/hooks/use-cart';
-import { useEffect, useState } from 'react';
 import CartItem from './components/cart-item';
 import Summary from './components/summary';
+import { Suspense } from 'react';
 
 
 const CartPage = () => {
@@ -24,7 +24,9 @@ const CartPage = () => {
                 ))}
               </ul>
             </div>
+            <Suspense fallback={<>Loading...</>}>
             <Summary />
+            </Suspense>
           </div>
         </div>
       </Container>
